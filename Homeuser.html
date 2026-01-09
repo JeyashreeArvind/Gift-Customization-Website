@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+    <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+         <style>
+            
+.banner-container {
+    display: flex;
+    width: 100%;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* In a real implementation, the background image would be set here */
+    background-image: url('bg1.png'); /* Replace with actual background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 380px; /* Adjust height as needed */
+    animation: subtleFlicker 2s infinite steps(1); 
+}
+
+
+.banner-content {
+    margin-left: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #eee;
+}
+
+.buttons-section{
+    margin-bottom: 10px;
+    display: flex;
+    
+}
+
+
+.enquiry-container {
+  /* Position the container to allow absolute positioning of the line */
+  position: relative;
+  /* Style the text itself */
+  font-size: 40px;
+  font-weight: bold;
+   width: 150px; /* Total width of the line */
+  height: 4px;
+  color: white; /* Color from the image */
+  padding-bottom: 20px; /* Space between text and line */
+   /* Wrap element tightly around text width */
+}
+
+.enquiry-container::before, .enquiry-container::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width:10px;
+  top:50px;
+  background-color: white; /* Line color */
+  border-radius: 50%; /* Makes ends rounded, appearing like dots */
+  transform: translateY(-50%);
+}
+.enquiry-container::before{
+left: 0;
+}
+.enquiry-container::after{
+right: 0;
+}
+.btn-enquiry {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+
+}
+
+
+.btn-explore{
+    text-decoration: none;
+    width:150px;
+    height:20px;
+    padding: 15px 25px;
+    color:white;
+    background-color: #F1C40F;
+    border-radius: 20px;
+    font-size: 24px;
+    margin-right: 50px;
+}
+
+.ratings-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icons-placeholder {
+    /* Placeholder for the overlapping circles of people's faces */
+    width: 150px; /* Approximate width of the circle group */
+    height: 70px;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+.profile-icons-placeholder img{
+    width:150px;
+    height: 70px;
+}
+
+.ratings-text p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.trusted-text {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* Add media queries for responsiveness if needed */
+@media (max-width: 768px) {
+    .banner-container {
+        flex-direction: column;
+    }
+    .banner-image-placeholder, .banner-content {
+        flex: auto;
+    }
+    .banner-content {
+        padding: 20px;
+    }
+}
+
+.why-choose-us {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 32px;
+    color:black;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(25% - 30px); /* Adjust width as needed */
+    max-width: 250px;
+}
+
+.icon-placeholder img {
+    /* Styles for the image containers to match the rounded aesthetic */
+    width: 100%;
+    height: 250px;
+    border-radius: 20px; /* Rounded corners for the "images" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item p {
+    font-size: 20px;
+    color: black;
+    margin: 0;
+}
+
+/* Basic responsiveness */
+@media (max-width: 992px) {
+    .feature-item {
+        width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+.featured-collections {
+    text-align: center;
+    padding: 20px;
+}
+
+.featured-collections h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.product-card {
+    border-radius: 10px;
+    padding: 15px;
+    width: 230px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid black;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.product-card p {
+    font-size: 1em;
+    color:#F1C40F;
+    margin-bottom: 15px;
+}
+
+.btn-shop {
+    background-color: #F1C40F; /* Yellow color from image */
+    color: #000;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.btn-customize {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 20px;
+    display: inline-block;
+}
+ 
+
+.offer-section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+}
+
+header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:800px;
+}
+
+.text-content {
+    margin-left: 50px;
+    width: 100%;
+}
+.image-content1{
+    width:400px;
+    height:400px;
+}
+
+.animated-text-container {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+    display: flex;
+    align-items: baseline;
+}
+
+.animated-part {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+/* Animation Keyframes */
+@keyframes moveDiagonal {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        /* Moves approximately 10px up and 10px right relative to its original position */
+        transform: translate(10px, -10px);
+    }
+    100%{
+        transform: translate(-10px, 10px);
+    }
+}
+
+#off-season { color: #000; animation: moveDiagonal 1s ease-in-out infinite reverse; }
+#collections { color: #ffc107; animation: moveDiagonal 1s ease-in-out infinite reverse; } /* Alternate direction/timing */
+#get { color: #000; animation: moveDiagonal 1s ease-in-out infinite reverse; } /* Reverse direction/timing */
+#thirty { color: #000; animation: moveDiagonal 1s ease-in-out infinite reverse;}
+
+.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    color:black;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 22px;
+    color:black;
+    line-height: 1.5;
+    
+}
+
+.graphic-container {
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+
+/* Simplified Graphic Style (as a placeholder for the image graphic) */
+.special-offer-graphic {
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffc107;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    /* In a real implementation, you'd use a background image for the hand/gifts */
+}
+.faq-section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+     border: 1px solid #F1C40F;
+}
+
+.faq-section h1 {
+    text-align: center;
+    color: #333;
+}
+
+.faq-item {
+   
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #F1C40F;
+}
+
+.question {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer; /* Suggests interactivity */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer {
+    font-size: 24px;
+    color: black;
+    margin-top: 10px;
+    /* For a static version, the answers are visible. For an interactive one, they would be hidden by default. */
+}
+
+
+         </style>
+</head>
+<body>
+    <header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homeuser.html" class="act">Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <div class="users">
+            <div class="user-profile" onclick="toggleDropdown()"><img src="user.png">
+                <nav class="dropdown-content" id="myDropdown">
+    <a href="Myaccount.html">Account Information</a>
+    <a href="Invoice.html">My order</a>
+    <a href="Track.html">Tracking Order</a>
+    <a href="Password.html">Password Manager</a>
+    <a href="logout.html">Logout</a>
+  </nav></div>
+  <script>
+    function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.avatar')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+             <span class="icon" ><a href="Wishlist.html" ><i class="fa-regular fa-heart"></i></a></span>
+            <span class="icon"  style="text-decoration: none;color: #B89C65;" ><a href="Cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+           <span class="notification-icon" id="bellIcon"><i class="fa-regular fa-bell"></i></span> 
+        
+    </div>
+    </div>
+    <div id="orderPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div style="font-size: 24px;font-weight: bold; text-align: left;"><img src="image 48.png" width="20px">Order delivery Notifications</div>
+            
+                <p>We offer fast and reliable delivery to ensure your gifts arrive fresh, on time, and beautifully packaged. Choose from<br>
+                standard, express, or same-day delivery options at checkout</p>
+                
+            
+        </div>
+    </div>
+    
+    <script>
+        // Get the pop-up element
+var popup = document.getElementById("orderPopup");
+
+// Get the button that opens the pop-up
+var btn = document.getElementById("bellIcon");
+
+// Get the <span> element that closes the pop-up
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the pop-up 
+btn.onclick = function() {
+  popup.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the pop-up
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the pop-up, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+         
+    </header>
+
+<div class="banner-container">
+        <!-- Placeholder for the image background/left side content -->
+        
+        <div class="banner-content">
+            <h1 class="main-title">Wrapped with Love</h1>
+            <p class="subtitle">Every gift tells a story - add your personal touch with thoughtful wrapping and heartfelt notes</p>
+            <div class="buttons-section">
+                <a href="#" class="btn btn-explore" onclick="window.location.href='Categories.html'">Explore now</a>
+                <div class="enquiry-container">Enquiry
+    
+</div>
+<div class="ratings-section">
+                <div class="profile-icons-placeholder"><img src="Group 30710.png"></div>
+                <div class="ratings-text">
+                    <p><strong>4.9k Ratings+</strong></p>
+                    <p class="trusted-text">Trusted by 50k customers.</p>
+                </div>
+            </div>
+ 
+           
+            </div>
+        </div>
+    </div>
+
+    <section class="why-choose-us">
+    <div class="container">
+        <h2>Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the gift collection image -->
+                    <img src="gifts.jpg" alt="Curated Gift Collections">
+                </div>
+                <p>Curated Gift Collections</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the personalization options image -->
+                    <img src="nightlight.png" alt="Personalization options">
+                </div>
+                <p>Personalization options</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the fast delivery image -->
+                    <img src="delivery.png" alt="Fast & Reliable Delivery">
+                </div>
+                <p>Fast & Reliable Delivery</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the secure payments image -->
+                    <img src="payment.png" alt="Easy & Secure Payments">
+                </div>
+                <p>Easy & Secure Payments</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-collections">
+    <h2>Featured collections</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="image-container">
+                <img src="image 52.png" alt="Product 1">
+                 <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+           
+        </div>
+        <div class="product-card">
+            <div class="image-container">
+                <img src="image 53.png" alt="Product 1">
+                <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+            
+        </div><div class="product-card">
+            <div class="image-container">
+                <img src="image 52.png" alt="Product 1">
+                <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+            
+        </div><div class="product-card">
+            <div class="image-container">
+                <img src="image 52.png" alt="Product 1">
+                <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<div class="offer-section">
+        <header>
+            Special offer & discounts
+        </header>
+        <div class="content-container">
+            <div class="text-content">
+                <div class="animated-text-container">
+                    <span class="animated-part" id="off-season">OFF SEASON</span>
+                    <span class="animated-part" id="collections">COLLECTIONS</span>
+                    <span class="animated-part" id="get">GET</span>
+                    <span class="animated-part" id="thirty">30%</span>
+                </div>
+                
+                <p class="tagline">"Unwrap the Joy – Special Offers Just for You!"</p>
+                <p class="description">
+                    Celebrate every moment with thoughtful gifts at irresistible prices. Discover handpicked treasures for every occasion – now on limited-time discount!
+                </p></div>
+                <div class="image-content1">
+                    <img src="image 8.png" width="400px">
+                </div>
+            </div>
+            <h1 style="text-align: center;">Frequently Asked Questions</h1>
+    <section class="faq-section">
+    
+    <div class="faq-item">
+        <h2 class="question">1. What types of gifts do you offer?</h2>
+        <p class="answer">We offer a wide range of gifts for all occasions—birthdays, anniversaries, weddings, corporate events, and more. Our collection includes personalized items, luxury hampers, home décor, custom keepsakes, and curated gift boxes.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="question">2. Do you offer gift wrapping or personalized messages?</h2>
+        <p class="answer">Yes! We offer free gift wrapping and the option to include a personalized message with every order. Simply select the option during checkout.</p>
+    </div>
+    <div class="faq-item" style="border: none;">
+        <h2 class="question">3. How long does delivery take?</h2>
+        <p class="answer">Delivery times vary depending on your location and the product. Standard shipping usually takes 3-7 business days, while express shipping is available for 1-3 day delivery. Custom/personalized items may take an extra 1-2 days for processing.</p>
+    </div>
+</section>
+
+<footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+  
+</body>
+</html>

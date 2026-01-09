@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+     <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+         <style>
+            .form-container {
+    margin-left:150px;
+    background-color: white;
+    padding:10px;
+    height: 550px;
+    flex:2;
+    width:200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    
+}
+.image-container {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    flex:1;
+    position: relative;
+     /* Start with overlay visible */
+    
+}
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* A semi-transparent black overlay */
+    /* Apply the animation */
+    animation-name: continuousFade;
+    animation-duration: 1s; /* Duration of one fade cycle */
+    animation-iteration-count: infinite; /* Repeat indefinitely */
+    animation-direction: alternate; /* Fade in and then fade out smoothly */
+}
+
+/* Define the keyframe animation */
+@keyframes continuousFade {
+    0% {
+        opacity: 0; /* Fully transparent (disappeared) at the start */
+    }
+    100% {
+        opacity: 1; /* Fully opaque (appeared) at the end of the animation direction */
+    }
+}
+
+.image-container img{
+    height:100%;
+    width:100%;    
+    display: block;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width:500px;
+    padding: 10px;
+    margin-left: 130px;
+    margin-right: 100px;
+    border: 2px solid #F1C40F;
+    border-radius: 5px;
+    height:60px;
+    font-size: larger;
+    box-sizing: border-box;
+}
+
+.login-btn {
+    width: 25%;
+    border: none;
+    border-radius: 5px;
+    background-color: #F1C40F;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 130px;
+    padding: 5px;
+}
+
+.forgot-pw {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color:black;
+    margin-top: 10px;
+    margin-left: 100px;
+    text-decoration: none;
+}
+
+.signup-text {
+    text-align: center;
+    margin: 22px 0 10px;
+    color:black;
+    font-size: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:40px;
+    border:2px solid #F1C40F;
+    padding:20px;
+    margin-left: 130px;
+    margin-right: 100px;
+    border-radius: 10px;
+    
+    
+}
+
+.social-icons a img {
+    width: 30px;
+    margin: 0 5px;
+}
+
+.create-account {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.create-account a {
+    color:#F1C40F;
+    text-decoration: none;
+}
+.modal {
+  display: none; 
+  z-index: 1; /* Sit on top */
+  position: fixed;
+  right: 0;
+  top:50px;
+  width: 90%;
+  height: 80%; /* Full height */
+  background-color:rgb(246, 228, 229);
+  gap:100px;
+}
+.modal-cont1{
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  right: 0;
+  top:10px;
+  width: 90%;
+  height:80%;
+  background-color:rgb(246, 228, 229);
+  gap:100px;
+  margin-left: 200px;
+}
+.modal-cont{
+    display: flex;
+ flex-direction: row;
+ height: 100%;
+}
+.modal-container{
+display: flex;
+gap: 100px;
+height: 80%;
+}
+
+.close {
+  color:black;
+  float: right;
+  font-size: 32px;
+  margin-top: 0;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.form-container span{
+    margin-top: 0;
+    margin-left: 100px;
+}
+.modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.image-section {
+    flex: 1;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+}
+.form-section {
+    flex:1;
+    display: flex;
+    width:300px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin:70px;
+    border-radius: 10px;
+}
+
+.form-container1 {
+    width: 80%;
+    margin-bottom: 50px;
+    margin-left: 150px;
+    
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color:black;
+}
+
+.input-group1 {
+    margin-bottom: 15px;
+}
+.input-group1::placeholder{
+    color:#4CAF50;
+}
+
+.input-group1 input {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: larger;
+}
+.signup-btn {
+    width: 60%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.signup-btn:hover {
+    background-color: #4CAF50;
+
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bolder;
+}
+.success-message {
+    display: none; /* Hidden by default */
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    margin-top: 200px;
+     color: #F1C40F;
+    font-size: 32px;
+    background-size: cover; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the image */
+ /* Fallback color if image fails to load */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2)
+
+}
+.form-container.red-background {
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url('image 49.png');
+    
+}
+.form-section.red-background {
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url('image 50.png');
+
+}
+
+
+
+
+.banner-container {
+    display: flex;
+    width: 100%;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* In a real implementation, the background image would be set here */
+    background-image: url('bg1.png'); /* Replace with actual background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 380px; /* Adjust height as needed */
+    animation: subtleFlicker 2s infinite steps(1); 
+}
+
+
+.banner-content {
+    margin-left: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-title {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #eee;
+}
+
+.buttons-section{
+    margin-bottom: 10px;
+    display: flex;
+    
+}
+
+
+.enquiry-container {
+  /* Position the container to allow absolute positioning of the line */
+  position: relative;
+  /* Style the text itself */
+  font-size: 40px;
+  font-weight: bold;
+   width: 150px; /* Total width of the line */
+  height: 4px;
+  color: white; /* Color from the image */
+  padding-bottom: 20px; /* Space between text and line */
+   /* Wrap element tightly around text width */
+}
+
+.enquiry-container::before, .enquiry-container::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width:10px;
+  top:50px;
+  background-color: white; /* Line color */
+  border-radius: 50%; /* Makes ends rounded, appearing like dots */
+  transform: translateY(-50%);
+}
+.enquiry-container::before{
+left: 0;
+}
+.enquiry-container::after{
+right: 0;
+}
+.btn-enquiry {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+
+}
+
+
+.btn-explore{
+    text-decoration: none;
+    width:150px;
+    height:20px;
+    padding: 15px 25px;
+    color:white;
+    background-color: #F1C40F;
+    border-radius: 20px;
+    font-size: 24px;
+    margin-right: 50px;
+}
+
+.ratings-section {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icons-placeholder {
+    /* Placeholder for the overlapping circles of people's faces */
+    width: 150px; /* Approximate width of the circle group */
+    height: 70px;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+.profile-icons-placeholder img{
+    width:150px;
+    height: 70px;
+}
+
+.ratings-text p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.trusted-text {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* Add media queries for responsiveness if needed */
+@media (max-width: 768px) {
+    .banner-container {
+        flex-direction: column;
+    }
+    .banner-image-placeholder, .banner-content {
+        flex: auto;
+    }
+    .banner-content {
+        padding: 20px;
+    }
+}
+
+.why-choose-us {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 32px;
+    color:black;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(25% - 30px); /* Adjust width as needed */
+    max-width: 250px;
+}
+
+.icon-placeholder img {
+    /* Styles for the image containers to match the rounded aesthetic */
+    width: 100%;
+    height: 250px;
+    border-radius: 20px; /* Rounded corners for the "images" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item p {
+    font-size: 20px;
+    color: black;
+    margin: 0;
+}
+
+/* Basic responsiveness */
+@media (max-width: 992px) {
+    .feature-item {
+        width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+.featured-collections {
+    text-align: center;
+    padding: 20px;
+}
+
+.featured-collections h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.product-card {
+    border-radius: 10px;
+    padding: 15px;
+    width: 230px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid black;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.product-card p {
+    font-size: 1em;
+    color:#F1C40F;
+    margin-bottom: 15px;
+}
+
+.btn-shop {
+    background-color: #F1C40F; /* Yellow color from image */
+    color: #000;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.btn-customize {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 20px;
+    display: inline-block;
+}
+ 
+
+.offer-section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+}
+
+header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:700px;
+}
+
+.text-content {
+    margin-left: 50px;
+    max-width: 80%;
+}
+.image-content1{
+    width:400px;
+    height:400px;
+}
+
+.animated-text-container {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+}
+
+.animated-part {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Animation Keyframes */
+@keyframes moveDiagonal {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        /* Moves approximately 10px up and 10px right relative to its original position */
+        transform: translate(10px, -10px);
+    }
+    100%{
+        transform: translate(-10px, 10px);
+    }
+}
+
+#off-season { color: #000; animation: moveDiagonal 1s ease-in-out infinite reverse; }
+#collections { color: #ffc107; animation: moveDiagonal 1s ease-in-out infinite reverse; } /* Alternate direction/timing */
+#get { color: #000; animation: moveDiagonal 1s ease-in-out infinite reverse; } /* Reverse direction/timing */
+#thirty { color: #000; animation: moveDiagonal 1s ease-in-out infinite reverse;}
+
+.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    color:black;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 22px;
+    color:black;
+    line-height: 1.5;
+    
+}
+
+.graphic-container {
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+
+/* Simplified Graphic Style (as a placeholder for the image graphic) */
+.special-offer-graphic {
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffc107;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    /* In a real implementation, you'd use a background image for the hand/gifts */
+}
+.faq-section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+     border: 1px solid #F1C40F;
+}
+
+.faq-section h1 {
+    text-align: center;
+    color: #333;
+}
+
+.faq-item {
+   
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #F1C40F;
+}
+
+.question {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer; /* Suggests interactivity */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answer {
+    font-size: 24px;
+    color: black;
+    margin-top: 10px;
+    /* For a static version, the answers are visible. For an interactive one, they would be hidden by default. */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Home.html" class="act">Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <button class="register-btn" onclick="openForm()">Register</button>
+         
+    </header>
+<div class="modal" id="registrationModal">
+    <div class="modal-container">
+        <div class="form-container" id="formContainer">
+            <div class="modal-header"><h2 id="heading" style="text-align: center;margin-top: 60px;font-size:32px;">Register Free !</h2><span id="close" class="close" onclick="closeForm()">&times;</span></div>
+            <form id="loginform">
+                <div class="input-group" >
+                    <input type="email" id="email" placeholder="Enter your e-mail" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div style="display: flex;flex-direction: row;"><button class="login-btn" type="submit">Login</button>
+                    <div id="forgot">
+            <a href="#" class="forgot-pw">Forget your password?</a></div></div>
+            </form>
+            <div class="success-message" id="successMessage">
+        Login successfully!
+    </div>
+            
+            <script>
+const emailField = document.getElementById('email');
+const passwordField = document.getElementById('password');
+emailField.onclick = () => emailField.value = "amjaann@gmail.com";
+passwordField.onclick=() => passwordField.value ='1234567';
+</script>
+<script>
+    document.getElementById('formContainer').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const formContainer = document.getElementById('formContainer');
+    const LoginFormr=document.getElementById('loginform');
+    const successMessage = document.getElementById('successMessage');
+    const forgotPswd=document.getElementById('forgot');
+    const accountForm=document.getElementById('account');
+    const socialIcons=document.getElementById('socialicons');
+    const regHeadng=document.getElementById('heading');
+    const reg=document.getElementById('signup-text');
+    const close1=document.getElementById('close');
+    formContainer.classList.add('red-background');
+    LoginFormr.style.display = 'none';
+    forgotPswd.style.display = 'none';
+    accountForm.style.display = 'none';
+    socialIcons.style.display = 'none';
+    regHeadng.style.display = 'none';
+    successMessage.style.display = 'block';
+    reg.style.display= 'none';
+    close1.style.display= 'none';
+    setTimeout(function() {
+            window.location.href = 'Homeuser.html'; 
+        }, 3000);
+});   
+
+
+
+
+</script>
+           <div>
+            <p class="signup-text" id="signup-text">____________________Sign Up Using_________________</p></div>
+            <div class="social-icons" id="socialicons">
+                <a href="#"><img src="google-icon.jpg" alt="Google"></a>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram-icon.jpg" alt="Instagram"></a>
+                <a href="#"><img src="twitter.jpg" alt="Twitter"></a>
+            </div>
+            <p class="create-account" id="account">Don't have an account? <a href="#" onclick="toggleForms('signUp', 'registrationModal'); return false;" >Create New Account.</a>
+    </div>
+        <div class="image-container">
+         <img src="login.png">
+         <div class="image-overlay"></div>
+        </div>
+    </div>
+    </div>
+    <script>
+        
+    </script>
+    <div class="modal-cont1" style="display: none;" id="signUp">
+        <div class="modal-cont">
+        <div class="image-section">
+            <img src="signup.png" width="100%" alt="Table">
+        </div>
+        <div class="form-section" id="formContainers" >
+            <div class="form-container1" >
+                <div class="form-header" id="formheader" >
+                    <h2>Sign Up</h2>
+                    <span class="close" onclick="closeForm()">&times;</span>
+                </div>
+                <form id="signupForm">
+                    <div class="input-group1">
+                        <input type="text" id="fullName" required placeholder="Full Name">
+                    </div>
+                    <div class="input-group1">
+                        <input type="email" id="email1" required placeholder="Email">
+                    </div>
+                    <div class="input-group1">
+                        <input type="password" id="password1" required placeholder="Password">
+                    </div>
+                    <button type="submit" onclick="redirectPage()" style="background-color: #4CAF50;color: white;border-radius: 8px;padding: 10px 60px;border: none;font-size: 18px;">Sign Up</button>
+                </form>
+                <div class="success-message" id="successMessages">
+        Signup Successfully
+    </div>
+                 <script>
+        const nameField = document.getElementById('fullName');
+const email1Field = document.getElementById('email1');
+email1Field.onclick = () => email1Field.value = "amjaann@gmail.com";
+nameField.onclick=() => nameField.value ='Amjath Althaf';
+const passField = document.getElementById('password1');
+passField.onclick = () => passField.value = '1234567';
+    </script>
+    <script>
+   document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formContainer1 = document.getElementById('formContainers');
+    const formHeader1=document.getElementById('formheader');
+    const signupForm = document.getElementById('signupForm');
+    const successMessage1 = document.getElementById('successMessages');
+    const loginLink1 = document.getElementById('loginlink');
+
+    formContainer1.classList.add('red-background');
+    loginLink1.style.display = 'none';
+    signupForm.style.display = 'none';
+    formHeader1.style.display = 'none';
+    successMessage1.style.display = 'block';
+    setTimeout(function() {
+            window.location.href = 'Homeuser.html'; 
+        }, 3000);
+});    
+</script>     
+
+                   <div class="login-link" id="loginlink">
+                    <p>Already have an account? <a href="#" onclick="toggleForms('registrationModal','signUp'); return false;">Log in</a></p>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+       
+
+   
+      
+<script>
+    var modal = document.getElementById("registrationModal");
+
+function openForm() {
+  modal.style.display = "block";
+}
+
+function closeForm() {
+  modal.style.display = "none";
+}
+  
+function handlePaymentSuccess()
+{
+document.getElementById('registrationModal').style.display = 'none';
+document.getElementById('signUp').style.display = 'block';
+}
+function toggleForms(showFormId, hideFormId) {
+    
+    var showForm = document.getElementById(showFormId);
+    var hideForm = document.getElementById(hideFormId);
+
+    
+    if (showForm) {
+        showForm.style.display = 'block'; 
+    }
+
+    
+    if (hideForm) {
+        hideForm.style.display = 'none';
+    }
+}
+function redirectPage() {
+
+    window.location.href = 'Homeuser.html';
+}
+
+</script>
+<div class="banner-container">
+        <!-- Placeholder for the image background/left side content -->
+        
+        <div class="banner-content">
+            <h1 class="main-title">Wrapped with Love</h1>
+            <p class="subtitle">Every gift tells a story - add your personal touch with thoughtful wrapping and heartfelt notes</p>
+            <div class="buttons-section">
+                <a href="#" class="btn btn-explore" onclick="window.location.href='Categories.html'">Explore now</a>
+                <div class="enquiry-container">Enquiry
+    
+</div>
+<div class="ratings-section">
+                <div class="profile-icons-placeholder"><img src="Group 30710.png"></div>
+                <div class="ratings-text">
+                    <p><strong>4.9k Ratings+</strong></p>
+                    <p class="trusted-text">Trusted by 50k customers.</p>
+                </div>
+            </div>
+ 
+           
+            </div>
+        </div>
+    </div>
+
+    <section class="why-choose-us">
+    <div class="container">
+        <h2>Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the gift collection image -->
+                    <img src="gifts.jpg" alt="Curated Gift Collections">
+                </div>
+                <p>Curated Gift Collections</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the personalization options image -->
+                    <img src="nightlight.png" alt="Personalization options">
+                </div>
+                <p>Personalization options</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the fast delivery image -->
+                    <img src="delivery.png" alt="Fast & Reliable Delivery">
+                </div>
+                <p>Fast & Reliable Delivery</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-placeholder">
+                    <!-- Placeholder for the secure payments image -->
+                    <img src="payment.png" alt="Easy & Secure Payments">
+                </div>
+                <p>Easy & Secure Payments</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-collections">
+    <h2>Featured collections</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="image-container">
+                <img src="image 52.png" alt="Product 1">
+                 <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+           
+        </div>
+        <div class="product-card">
+            <div class="image-container">
+                <img src="image 53.png" alt="Product 1">
+                <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+            
+        </div><div class="product-card">
+            <div class="image-container">
+                <img src="image 52.png" alt="Product 1">
+                <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+            
+        </div><div class="product-card">
+            <div class="image-container">
+                <img src="image 52.png" alt="Product 1">
+                <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <a href="#" class="btn-shop">Shop now</a>
+                <a href="#" class="btn-customize">Customize</a>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<div class="offer-section">
+        <header>
+            Special offer & discounts
+        </header>
+        <div class="content-container">
+            <div class="text-content">
+                <div class="animated-text-container">
+                    <span class="animated-part" id="off-season">OFF SEASON</span>
+                    <span class="animated-part" id="collections">COLLECTIONS</span>
+                    <span class="animated-part" id="get">GET</span>
+                    <span class="animated-part" id="thirty">30%</span>
+                </div>
+                
+                <p class="tagline">"Unwrap the Joy – Special Offers Just for You!"</p>
+                <p class="description">
+                    Celebrate every moment with thoughtful gifts at irresistible prices. Discover handpicked treasures for every occasion – now on limited-time discount!
+                </p></div>
+                <div class="image-content1">
+                    <img src="image 8.png" width="500px">
+                </div>
+            </div>
+            <h1 style="text-align: center;">Frequently Asked Questions</h1>
+    <section class="faq-section">
+    
+    <div class="faq-item">
+        <h2 class="question">1. What types of gifts do you offer?</h2>
+        <p class="answer">We offer a wide range of gifts for all occasions—birthdays, anniversaries, weddings, corporate events, and more. Our collection includes personalized items, luxury hampers, home décor, custom keepsakes, and curated gift boxes.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="question">2. Do you offer gift wrapping or personalized messages?</h2>
+        <p class="answer">Yes! We offer free gift wrapping and the option to include a personalized message with every order. Simply select the option during checkout.</p>
+    </div>
+    <div class="faq-item" style="border: none;">
+        <h2 class="question">3. How long does delivery take?</h2>
+        <p class="answer">Delivery times vary depending on your location and the product. Standard shipping usually takes 3-7 business days, while express shipping is available for 1-3 day delivery. Custom/personalized items may take an extra 1-2 days for processing.</p>
+    </div>
+</section>
+
+<footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>

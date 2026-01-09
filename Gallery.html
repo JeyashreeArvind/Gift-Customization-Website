@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+    <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        
+.gift-gallery-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container h1 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.container p {
+    font-size: 24px;
+    color: #ffcc00; /* Approximate yellow color from image */
+    margin-bottom: 30px;
+}
+
+.products-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px; /* Space between the two items */
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Specific styling for the watch image to make it circular */
+.watch-image {
+    border-radius: 50%;
+    width: 350px; /* Adjust size as needed */
+    height: 350px; /* Adjust size as needed */
+    object-fit: cover; /* Ensures the image covers the circular area well */
+    border: 1px solid #ddd; /* Optional: subtle border */
+}
+
+/* Styling for the earrings image (no circular crop needed) */
+.product-item:last-child img {
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+}
+
+
+.container1 {
+    display: flex; /* Uses flexbox for the two columns */
+    gap: 20px; /* Space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.container1 p{
+    font-size: 24px;
+}
+.column {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically within each column */
+    gap: 20px;
+    flex: 1; /* Makes columns grow equally */
+}
+
+.card {
+    position: relative; /* Container for absolute positioning of text */
+    overflow: hidden; /* Ensures circular images are clipped correctly */
+    border-radius: 10px; /* Optional: for a softer look to the main cards */
+}
+.speaker-card{
+    display: flex;
+    flex-direction: row;
+}
+
+.speaker-card  img {
+    width: 300px;
+    height: auto;
+    margin-left: 400px;
+
+}
+.coffee-card{
+    display: flex;
+    flex-direction: row;
+    gap: 500px;
+}
+.coffee-card img{
+    width:350px;
+    height:500px;
+    margin-left: 100px;
+    
+}
+.moet-card img{
+    width:350px;
+    border-radius: 20px;
+    height:500px;
+
+}
+
+/* Specific styling for circular images */
+.coffee-image, .moet-image {
+    border-radius: 50%; /* Creates the circular mask */
+    /* Note: The actual image should be square or the overflow will be uneven */
+}
+
+.text-content {
+    position: absolute; /* Positions text relative to its parent .card */
+    color: white; /* Default text color, adjust per image background */
+    padding: 10px;
+}
+
+.text-content h3 {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.text-content p {
+    margin: 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #F1C40F;
+}
+
+/* Positioning specific text blocks */
+.top-left {
+    top: 20px;
+    left: 20px;
+    color: black; /* Text color for the light background speaker image */
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+    color: black; /* Text color for the light background frame section */
+    text-align: right;
+    float: right;
+    margin-left: 300px;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the "COFFEE TIME!" text */
+    color: white; /* Text color for the dark background coffee image */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: for better readability */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Optional: Add media queries for responsiveness on smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks columns vertically on mobile */
+    }
+}
+
+    </style>
+</head>
+<body>
+ <header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>   
+            <li><a href="Homeuser.html">Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Gallery.html" class="act">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <div class="users">
+            <div class="user-profile" onclick="toggleDropdown()"><img src="user.png">
+                <nav class="dropdown-content" id="myDropdown">
+    <a href="Myaccount.html">Account Information</a>
+    <a href="Invoice.html">My order</a>
+    <a href="Track.html">Tracking Order</a>
+    <a href="Password.html">Password Manager</a>
+    <a href="logout.html">Logout</a>
+  </nav></div>
+  <script>
+    function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.avatar')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+             <span class="icon" ><a href="Wishlist.html"class="nav-item active"><i class="fa-regular fa-heart"></i></a></span>
+            <span class="icon" id="myIcon1" style="text-decoration: none;color: #B89C65;" ><a href="Cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+           <span class="notification-icon" id="bellIcon"><i class="fa-regular fa-bell"></i></span> 
+        
+    </div>
+    </div>
+    <div id="orderPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div style="font-size: 24px;font-weight: bold;"><img src="image 48.png" width="20px">Order delivery Notifications</div>
+            
+                <p>We offer fast and reliable delivery to ensure your gifts arrive fresh, on time, and beautifully packaged. Choose from<br>
+                standard, express, or same-day delivery options at checkout</p>
+                
+            
+        </div>
+    </div>
+    
+    <script>
+        // Get the pop-up element
+var popup = document.getElementById("orderPopup");
+
+// Get the button that opens the pop-up
+var btn = document.getElementById("bellIcon");
+
+// Get the <span> element that closes the pop-up
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the pop-up 
+btn.onclick = function() {
+  popup.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the pop-up
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the pop-up, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+         
+    </header>
+    
+  <section class="gift-gallery-section">
+    <div class="container">
+        <h1>Gift Gallery</h1>
+        <p>Browse our curated collection of beautiful gifts and get inspired for your next special occasion</p>
+        
+        <div class="products-container">
+            <div class="product-item">
+                <!-- Use your local image path for the watch -->
+                <img src="image 39.png" alt="Rose gold watch" class="watch-image">
+            </div>
+            <div class="product-item">
+                <!-- Use your local image path for the earrings -->
+                <img src="image 40.png" alt="Gold earrings">
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="container1">
+        
+        <!-- Left Column: Tech Essentials & Coffee -->
+        <div class="column column-left">
+            <div class="card speaker-card">
+                
+                <div class="text-content top-left">
+                    <p>Tech Essentials</p>
+                    <p>Latest gadgets and accessories</p>
+                    <p class="price">From $45</p>
+                </div>
+                <img src="image 41.png" alt="Bluetooth Speaker" class="speaker-image">
+                 <div style="margin-left: 200px;">
+                    <p>Custom Frames</p>
+                    <p>Personalized memory Keepers</p>
+                    <p class="price">From $25</p>
+                </div>
+            </div>
+        </div>
+         </div>
+         <div>
+              <div class="coffee-card">
+                <img src="image 42.png" alt="Coffee Mug" class="coffee-image">
+                <div class="moet-card">
+                <img src="image 43.png" alt="Moet Champagne" class="moet-image">
+                </div>
+            </div>      
+            <div class="card moet-card">
+                
+                <div style="float: right;margin-right: 200px;font-size: 24px;">
+                <p>Gourmet Treats</p>
+                    <p>Curated food and beverages</p>
+                    <p class="price">From $25</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+ <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
