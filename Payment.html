@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+    <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+
+
+.payment-container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: 120px;
+    padding: 50px;
+}
+
+h1 {
+    text-align: center;
+    color:black;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.item-card {
+    display: flex;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+.item-image-wrapper {
+    /* The original image has some padding around it within the card's visual design */
+    padding: 15px; 
+}
+
+.item-image {
+    width: 90px; /* Approximate width of the image shown */
+    height: auto;
+    display: block;
+}
+
+.item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.item-name {
+    font-size: 1.5rem;
+    color:black;
+    flex-basis: 50%;
+}
+
+.item-date {
+    font-size: 1.5rem;
+    color:black;
+    flex-basis: 30%;
+    text-align: left;
+}
+
+.item-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745; /* Green color for the price */
+    flex-basis: 20%;
+    text-align: right;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    .item-details {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .item-name, .item-date, .item-price {
+        flex-basis: auto;
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+}
+
+
+.container {
+    display: flex;
+    width: 100%;
+    gap:50px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    padding: 10px;
+}
+
+.order-summary-box {
+    border: 2px solid black;
+    padding: 15px;
+    width:400px;
+    border-radius: 8px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.order-summary-box h1 {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.item-row, .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.discount {
+    color: #f00;
+}
+
+.total-row {
+    font-weight: bold;
+    border-top: 1px solid black;
+    padding-top: 10px;
+    color: #4CAF50; /* Green color for total */
+}
+
+/* Right panel styling */
+.payment-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%; /* Circular appearance */
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    cursor: pointer;
+}
+.payment-option input{
+    font-size: larger;
+}
+
+.payment-option img {
+    width: 100px;
+    height: 100px;
+}
+.paymentbox{
+    width:500px;
+}
+
+.payment-details-box {
+    border: 4px dotted black;
+    padding: 100px;
+    border-radius: 8px;
+    width:500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-right: 100px;
+}
+
+.upi-details {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+
+}
+
+.upi-details input {
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.upi-details label{
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+
+.proceed-btn {
+    background-color: #fdd835; /* Yellowish color */
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.gpay-large-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    margin-left: 50px;
+}
+
+.gpay-large-logo img {
+    width: 260px;
+    height: 260px;
+}
+.image-placeholder{
+    margin-left: 50px;
+}
+
+/* Success Section Background and Styling */
+.payment-message {
+    display: none;
+   background-image: url('image 38.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 200px;
+    width:100%;
+    height: 450px;
+
+    margin-right: 500px;
+
+    color: black;
+}
+
+/* Big Rounded Tick Icon */
+.tick-circle {
+    font-size: 50px;
+    color:white;
+    background: #2ecc71;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+    </style>
+</head>
+<body>
+  <header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homeuser.html" >Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <div class="users">
+            <div class="user-profile" onclick="toggleDropdown()"><img src="user.png">
+                <nav class="dropdown-content" id="myDropdown">
+    <a href="Myaccount.html">Account Information</a>
+    <a href="Invoice.html">My order</a>
+    <a href="Track.html">Tracking Order</a>
+    <a href="Password.html">Password Manager</a>
+    <a href="logout.html">Logout</a>
+  </nav></div>
+  <script>
+    function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.avatar')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+             <span class="icon" ><a href="Wishlist.html"><i class="fa-regular fa-heart"></i></a></span>
+            <span class="icon" id="myIcon1" style="text-decoration: none;color: #B89C65;" ><a href="Cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+           <span class="notification-icon" id="bellIcon"><i class="fa-regular fa-bell"></i></span> 
+        
+    </div>
+    </div>
+    <div id="orderPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div style="font-size: 24px;font-weight: bold;"><img src="image 48.png" width="20px">Order delivery Notifications</div>
+            
+                <p>We offer fast and reliable delivery to ensure your gifts arrive fresh, on time, and beautifully packaged. Choose from<br>
+                standard, express, or same-day delivery options at checkout</p>
+                
+            
+        </div>
+    </div>
+    
+    <script>
+        // Get the pop-up element
+var popup = document.getElementById("orderPopup");
+
+// Get the button that opens the pop-up
+var btn = document.getElementById("bellIcon");
+
+// Get the <span> element that closes the pop-up
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the pop-up 
+btn.onclick = function() {
+  popup.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the pop-up
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the pop-up, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+         
+    </header>
+    
+     <div class="payment-container">
+        <h1>Payment Selection</h1>
+        
+        <div class="item-card">
+            <div class="item-image-wrapper">
+                <!-- A placeholder for the image is used here -->
+                <img src="image 52.png" width="200px" alt="Product Image" class="item-image">
+            </div>
+            <div class="item-details">
+                <span class="item-name">The Picture Frame set</span>
+                <span class="item-date">22 August 2025</span>
+                <span class="item-price">₹1000</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="left-panel">
+            <div class="order-summary-box">
+                <h1>Order Summary</h1>
+                <div class="summary-details">
+                    <div class="item-row">
+                        <span>Items</span>
+                        <span>1</span>
+                    </div>
+                    <div class="item-row">
+                        <span>Subtotal</span>
+                        <span>Rs.1200</span>
+                    </div>
+                    <div class="item-row">
+                        <span>Shipping</span>
+                        <span>Rs.00.0</span>
+                    </div>
+                    <div class="item-row">
+                        <span>Taxes</span>
+                        <span>Rs.00.0</span>
+                    </div>
+                    <div class="item-row discount">
+                        <span>Coupon Discount</span>
+                        <span>Rs.200</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span>₹1000</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Placeholder for the image section below the summary -->
+            <div class="image-placeholder">
+                <img src="image 52.png" width="600px">
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="payment-options">
+                <div class="payment-option">
+                    <input type="radio" id="option1" value="option1">
+                    <div><img src="gpay-logo1.png" alt="GPay Logo">
+                    <span>G Pay</span></div>
+                </div>
+                 <div class="payment-option">
+                    <input type="radio" id="option2" value="option2">
+                   <div> <img src="phonepe-logo.png" alt="PhonePe Logo">
+                    <span style="margin-left:20px;">PhonePe</span></div>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="option3" value="option3">
+                    <div><img src="paytm-logo.png" alt="Paytm Logo">
+                    <span>Paytm</span></div>
+                </div>
+            </div>
+           <div id="payment-box" class="paymentbox">
+            <div class="payment-details-box" id="payment-box1">
+                <div class="upi-details" id="upi-Id">
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" value="Name">
+                    <label for="upi-id">Enter UPI ID</label>
+                    <input type="text" id="upi-id" value="UPI-id">
+                    <button  class="proceed-btn" id="myButton">Proceed</button>
+                </div>
+                
+   
+                <div class="gpay-large-logo">
+                    <img src="gpay-logo.png" alt="GPay Logo Large">
+                    <span>G Pay</span>
+                </div>
+                </div>
+                </div>
+                <div id="paymentmessage" class="payment-message">
+                     <div class="tick-circle">✓</div>
+        Payment successful!
+    </div>
+                </div>
+                </div>
+                
+                <script>
+                    const nameField = document.getElementById('name');
+const upiField = document.getElementById('upi-id');
+upiField.onclick = () => upiField.value = "David@hdfc12345";
+nameField.onclick=() => nameField.value ='David Johnson';
+document.getElementById("myButton").addEventListener("click", function() {
+            var message = document.getElementById("paymentmessage");
+            message.style.display = "block"; // Show the message
+            document.getElementById('payment-box1').style.display = "none";
+
+             setTimeout(function(){
+                window.location.href = "Invoice.html";
+            }, 3000)
+        })
+
+
+    
+    
+    
+                </script>
+                
+
+
+     <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>

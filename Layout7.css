@@ -1,0 +1,425 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+
+.nav-bar
+ {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    margin-left: 50px;
+    margin-left: 50px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+.flicker-container {
+  width: 200px; /* Set a specific size */
+  height: 200px;
+  overflow: hidden;
+}
+
+.flicker-effect {
+  width: 100%;
+  height: auto;
+  animation: subtleFlicker 2s infinite steps(1); /* Use steps() for a sharp, non-tweened jump */
+}
+
+@keyframes subtleFlicker {
+  0% ,100%{
+    filter:brightness(1) ;
+  }
+  
+  50% {
+    filter: brightness(0.7);
+  }
+ 
+}
+
+
+.logo-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.image-content{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    
+
+}
+
+.logo-name {
+    font-family:"Brush Script MT", cursive;
+    font-size: 2.5rem;
+    margin-top: 5px;
+    color: #333;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-right: 50px;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    font-size: 26px;
+    color:black;
+    font-weight: 600;
+    line-height: 100px; /* Aligns vertically with the top of the logo image area */
+    display: inline-block;
+}
+
+.register-btn {
+    background-color: #F1C40F;
+    border: none;
+    border-radius: 10px;
+    padding: 20px 35px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 200px;
+    color:black;
+    margin-top: 35px; /* Aligns approximately with the nav links */
+}
+.main-nav a.act {
+  color: #F1C40F;
+  font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #F1C40F;
+    border-radius: 10px;
+    padding: 10px 35px;
+    background-color: #f9f9f9;
+    width: 350px;
+    margin-top: 20px; /* Space from the main nav/register button above */
+    margin-left: auto; /* Pushes it to the right under the register button */
+}
+
+.search-container input {
+    border: none;
+    background: transparent;
+    padding: 10px;
+    outline: none;
+    flex-grow: 1;
+    color: black;
+    font-size: 24px;
+
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color:black;
+    font-size: larger;
+}
+
+.search-icon {
+    width: 35px;
+    height: 35px;
+}
+.search-container input::placeholder{
+    color: black;
+    font-size: 24px;
+}
+
+/* Optional: Add media queries for responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        margin: 10px 0;
+        line-height: normal;
+    }
+
+    .register-btn {
+        margin-top: 10px;
+    }
+
+    .search-container {
+        margin-left: unset;
+        margin-top: 15px;
+        width: 80%;
+    }
+}
+
+
+.site-footer {
+    background-color: #F1C40F; /* Yellow background color */
+    color: #000;
+    padding-top: 40px;
+    width: 100%;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    margin-bottom: 20px;
+}
+
+.footer-left {
+    flex-basis: 150px;
+    margin-left: 50px;
+}
+
+
+.logo-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family:"Brush Script MT", cursive;
+}
+
+.footer-links {
+    flex-basis: 220px;
+    margin-bottom: 20px;
+}
+.footer-contact{
+    flex-basis: 280px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.footer-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+.footer-contact p {
+    font-size: 24px;
+    margin:10px;
+}
+
+.social-icons a {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-left: 15px;
+    color: black;
+}
+
+.footer-bottom {
+    border-top: 1px solid #00000033;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+.footer-bottom a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Basic responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-links, .footer-contact {
+        flex-basis: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .logo-placeholder {
+        margin: 0 auto 10px auto;
+    }
+}
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+}
+
+/* Pop-up content box */
+.popup-content {
+    background-color: #F1C40F; /* Green background color from image */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    color:black;
+    border-radius: 5px;
+    font-size: 22px;
+}
+.nav-item {
+    position: relative; /* Essential for positioning the dot */
+    display: inline-block;
+    padding: 10px;
+    font-size: 44px;
+    text-decoration: none;
+    color: black;
+}
+
+/* The Active Dot */
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 45px;
+    left: 70%;
+    right: 80px;
+    width: 8px;
+    height: 8px;
+    background-color:#F1C40F; /* Dot color */
+    border-radius: 50%; /* Makes it a circle */
+}
+
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popup-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.popup-content li {
+    margin-bottom: 10px;
+}
+.icon-container {
+    position: relative; /* Essential for positioning the dot */
+    display: inline-block;
+    cursor: pointer; /* Makes it clear the icon is interactive */
+    font-size: 50px; /* Adjust size as needed */
+    color: grey; /* Initial heart color */
+}
+
+/* Style for the red dot */
+.dot {
+    position: absolute;
+    top: 0;
+    right: -5px; /* Adjust positioning as needed */
+    height: 15px;
+    width: 15px;
+    background-color:#4CAF50;
+    border-radius: 50%; /* Makes it a circle */
+    display: none; /* Initially hide the dot */
+}
+
+/* Class added by JavaScript to show the dot */
+.show {
+    display: block;
+}
+
+/* Optional: change heart color when the dot is visible */
+.active-heart {
+    color: #4CAF50;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #F1C40F; /* Light background for the menu */
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 5;
+  font-size: 20px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color:white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Makes each link a block element for full width and padding */
+}
+.dropdown-content a:hover{
+    background-color: #000;
+}
+
+
+/* Show the dropdown menu (this class is added/removed by JavaScript) */
+.show {
+  display: block;
+}
+.user-profile img{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.users{
+    display: flex;
+    margin-top: 100px;
+    flex-direction: row;
+    color:black;
+    font-size: 40px;
+    gap:30px;
+}
+.icon{
+    color: black;
+    text-decoration: none;
+}
+.icon a{
+    text-decoration: none;
+    color: black;
+}

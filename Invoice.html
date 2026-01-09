@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+    <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .invoice-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F1C40F; /* A shade of yellow */
+    padding: 50px;
+    border-radius: 8px;
+    font-family: sans-serif;
+    color: black;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    margin-top: 100px;
+
+}
+
+.details-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.label {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 40px;
+}
+
+.value {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.download-button {
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.download-button:hover {
+    background-color: #f5f5f5;
+}
+.item-card {
+    display: flex;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding-right: 20px;
+    width:80%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 150px;
+
+}
+
+.item-image-wrapper {
+    /* The original image has some padding around it within the card's visual design */
+    padding: 15px; 
+}
+
+.item-image {
+    width: 90px; /* Approximate width of the image shown */
+    height: auto;
+    display: block;
+}
+
+.item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+.item-name {
+    font-size: 1.5rem;
+    color:black;
+    flex-basis: 50%;
+}
+
+.item-date {
+    font-size: 1.5rem;
+    color:black;
+    flex-basis: 30%;
+    text-align: left;
+}
+
+.item-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745; /* Green color for the price */
+    flex-basis: 20%;
+    text-align: right;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    .item-details {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .item-name, .item-date, .item-price {
+        flex-basis: auto;
+        width: 100%;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+}
+
+
+.summary-container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: 150px;
+    padding: 80px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffcc00; /* Yellow background */
+    padding: 40px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 2em;
+    color: #4CAF50; /* Green color for total */
+}
+
+.track-order-btn {
+    width: 100%;
+    padding: 40px;
+    background-color: #ffcc00; /* Yellow background */
+    border: none;
+    border-radius: 5px;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.track-order-btn:hover {
+    background-color: #e6b800;
+}
+
+    </style>
+</head>
+<body>
+<header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homeuser.html">Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <div class="users">
+            <div class="user-profile" onclick="toggleDropdown()"><img src="user.png">
+                <nav class="dropdown-content" id="myDropdown">
+    <a href="Myaccount.html">Account Information</a>
+    <a href="Invoice.html">My order</a>
+    <a href="Track.html">Tracking Order</a>
+    <a href="Password.html">Password Manager</a>
+    <a href="logout.html">Logout</a>
+  </nav></div>
+  <script>
+    function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.avatar')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+             <span class="icon" ><a href="Wishlist.html"><i class="fa-regular fa-heart"></i></a></span>
+            <span class="icon" id="myIcon1" style="text-decoration: none;color: #B89C65;" ><a href="Cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+           <span class="notification-icon" id="bellIcon"><i class="fa-regular fa-bell"></i></span> 
+        
+    </div>
+    </div>
+    <div id="orderPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div style="font-size: 24px;font-weight: bold;"><img src="image 48.png" width="20px">Order delivery Notifications</div>
+            
+                <p>We offer fast and reliable delivery to ensure your gifts arrive fresh, on time, and beautifully packaged. Choose from<br>
+                standard, express, or same-day delivery options at checkout</p>
+                
+            
+        </div>
+    </div>
+    
+    <script>
+        // Get the pop-up element
+var popup = document.getElementById("orderPopup");
+
+// Get the button that opens the pop-up
+var btn = document.getElementById("bellIcon");
+
+// Get the <span> element that closes the pop-up
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the pop-up 
+btn.onclick = function() {
+  popup.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the pop-up
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the pop-up, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+         
+    </header>
+    
+    <div class="invoice-bar" id="invoicebar">
+    <div class="details-group">
+        <span class="label">Order ID</span>
+        <span class="value">#SJKD456FH</span>
+    </div>
+    <div class="details-group">
+        <span class="label">Payment Method</span>
+        <span class="value">G-PAY</span>
+    </div>
+    <div class="details-group">
+        <span class="label">Transaction Id</span>
+        <span class="value">TF59DHJK</span>
+    </div>
+    <div class="details-group">
+        <span class="label">Estimate Delivery Date</span>
+        <span class="value">28 June 2025</span>
+    </div>
+    <button class="download-button" onclick="showInvoice()">Download Invoice</button>
+</div>
+<script>
+    function showInvoice(){
+
+        document.getElementById('invoicebar').style.display="none";
+        document.getElementById('track-button').style.display="none";
+    }
+</script>
+<div class="item-card">
+            <div class="item-image-wrapper">
+                <!-- A placeholder for the image is used here -->
+                <img src="image 52.png" width="200px" alt="Product Image" class="item-image">
+            </div>
+            <div class="item-details">
+                <span class="item-name">The Picture Frame set</span>
+                <span class="item-date">22 August 2025</span>
+                <span class="item-price">₹1000</span>
+            </div>
+        </div>
+     <div class="summary-container">
+        <div class="summary-item">
+            <span>Shipping</span>
+            <span>Rs.00.0</span>
+        </div>
+        <div class="summary-item">
+            <span>Taxes</span>
+            <span>Rs.00.0</span>
+        </div>
+        <div class="summary-item">
+            <span>Coupon Discount</span>
+            <span>Rs.150</span>
+        </div>
+        
+        <div class="summary-total">
+            <span>Total</span>
+            <span>₹850</span>
+        </div>
+        <div id="track-button">
+        <button class="track-order-btn" onclick="window.location.href='Track.html';">Track Order</button>
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
