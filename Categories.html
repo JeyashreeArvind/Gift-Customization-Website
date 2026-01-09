@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+    <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+
+.container { max-width: 1200px; margin: 0 auto; }
+h1 { text-align: center; color: black; }
+h2 { color: black; margin-top: 40px; }
+.filter-section { display: flex; flex-direction:row;gap:100px; font-size: 24px;  margin-bottom: 100px; padding: 40px;}
+.filters-wrapper { display: flex; width:800px; justify-content:space-between; padding: 40px;  background-color: #F1C40F; padding: 10px; border-radius: 5px; }
+.filter-box { background-color: #F1C40F; padding: 20px; border-right: 5px dotted black; position: relative; }
+.filter-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+.arrow { transition: transform 0.3s; }
+.filter-options { display: none; position: absolute; top: 100%; left: 0; background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 10; width: 150px; }
+.filter-options label { display: block; margin-bottom: 5px; }
+.filter-options input { margin-right: 5px; }
+.filter-options.show { display: block; }
+.filter-header.expanded .arrow { transform: rotate(180deg); }
+.submit-btn { background-color: #F1C40F; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-top: 10px; }
+.explore-btn { background-color: #F1C40F; border: none;font-size: 24px; width:250px;color: white;   padding: 20px 20px; border-radius: 20px; cursor: pointer; margin-top: 20px; font-weight: bold; }  
+.product-container {
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 80px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 40px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    height: 250px;
+    width: 200px;
+    background-color: #eee; /* Placeholder for image */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-block;
+    position: relative;
+}
+.product-image img{
+    height:100%;
+    display: block;
+    width: 100%;
+}
+
+.product-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.product-details p {
+    color: #ff0000;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.shop-now, .customize {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.shop-now {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.customize {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+.heart-btn {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 32px;
+  color:white; /* Initial color of the heart */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 300px;
+  border-radius: 5px;
+  border: 2px solid #F1C40F;
+  z-index: 10;
+}
+
+.heart-btn.clicked {
+  
+  color: #F1C40F;
+   /* Color when clicked */
+}
+/*body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}*/
+
+#openFormBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Overlay for the popup */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Content of the popup (the form itself) */
+.popup-content {
+    background-color: #F1C40F;
+    padding: 40px;
+    border: 3px dotted black;
+    width: 80%; /* Adjust width as needed */
+    max-width: 1200px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-row {
+    margin-bottom: 15px;
+}
+.form-row1{
+    display: flex;
+    flex-direction: row;
+    gap:100px;
+    margin-bottom: 20px;
+}
+.form-row2{
+    display: flex;
+    flex-direction: row;
+    gap:100px;
+    margin-bottom: 20px;
+}
+
+.popup-content  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.popup-content   input[type="text"],
+input[type="date"] {
+    width: 300px;
+    height: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 12px;
+    font-size: larger;
+}
+.popup-content textarea{
+    width:600px;
+    height:140px;
+     padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 12px;
+    font-size: larger;
+}
+
+.popup-content   button[type="submit"] {
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    width:200px;
+    margin-top: 100px;
+    font-size: 24px;
+    height:60px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    float: right;
+}
+.overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.messageBox {
+    background-image: url('image 9.png'); /* Set the background image [10] */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 200px;
+    border-radius: 5px;
+    text-align: center;
+    width: 500px;
+    font-size: 28px;
+    color: black; /* Adjust text color for readability */
+    /* Add specific styles for the message box content */
+}
+
+
+/* Styles the button to look like the icon in your image */
+.arrow-button {
+    background-color: #ffcc00; /* Yellow background */
+    border: 3px dashed #333; /* Dashed border */
+    border-radius: 50%; /* Makes it a circle */
+    width: 100px;
+    height: 100px;
+    font-size: 40px; /* Size of the unicode arrow character */
+    color: #333; /* Color of the arrow */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.arrow-button:hover {
+    transform: scale(1.1);
+}
+
+/* The class used by JavaScript to hide elements */
+.hidden {
+    display: none;
+}
+
+#imageContainer img {
+    margin-top: 20px;
+    max-width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.popup-content img{
+    height: 250px;
+}
+
+
+
+    </style>
+</head>
+<body>
+ <header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homeuser.html">Home</a></li>
+                <li><a href="Categories.html" class="act">Categories</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <div class="users">
+            <div class="user-profile" onclick="toggleDropdown()"><img src="user.png">
+                <nav class="dropdown-content" id="myDropdown">
+    <a href="Myaccount.html">Account Information</a>
+    <a href="Invoice.html">My order</a>
+    <a href="Track.html">Tracking Order</a>
+    <a href="Password.html">Password Manager</a>
+    <a href="logout.html">Logout</a>
+  </nav></div>
+  <script>
+    function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.avatar')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+             <span class="icon" ><a href="Wishlist.html"><i class="fa-regular fa-heart"></i></a></span>
+            <span class="icon" id="myIcon1" style="text-decoration: none;color: #B89C65;" ><a href="Cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+           <span class="notification-icon" id="bellIcon"><i class="fa-regular fa-bell"></i></span> 
+        
+    </div>
+    </div>
+    <div id="orderPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div style="font-size: 24px;font-weight: bold;"><img src="image 48.png" width="20px">Order delivery Notifications</div>
+            
+                <p>We offer fast and reliable delivery to ensure your gifts arrive fresh, on time, and beautifully packaged. Choose from<br>
+                standard, express, or same-day delivery options at checkout</p>
+                
+            
+        </div>
+    </div>
+    
+    <script>
+        // Get the pop-up element
+var popup = document.getElementById("orderPopup");
+
+// Get the button that opens the pop-up
+var btn = document.getElementById("bellIcon");
+
+// Get the <span> element that closes the pop-up
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the pop-up 
+btn.onclick = function() {
+  popup.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the pop-up
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the pop-up, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+         
+    </header>
+    <div>
+    <img src="Categoriesbg.png" width="100%">
+    </div>
+
+    <div class="container">
+        <h1>categories</h1>
+        <h2>Filter section</h2>
+        <div class="filter-section">
+            
+            <div class="filters-wrapper">
+                <div class="filter-box">
+                    <div class="filter-header" onclick="toggleDropdown(this)">
+                        <span>Occasion</span>
+                        <span class="arrow">^</span>
+                    </div>
+                    <div class="filter-options">
+                        <label><input type="radio" name="occasion" value="birthday"> Birthday</label>
+                        <label><input type="radio" name="occasion" value="anniversary"> Anniversary</label>
+                        <label><input type="radio" name="occasion" value="wedding"> Wedding</label>
+                        <label><input type="radio" name="occasion" value="engagement"> Engagement</label>
+                        <button class="submit-btn" >Submit</button>
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <div class="filter-header" onclick="toggleDropdown(this)">
+                        <span>Gift type</span>
+                        <span class="arrow">^</span>
+                    </div>
+                    <div class="filter-options">
+                        <label><input type="radio" name="gift-type" value="personalized"> Personalized</label>
+                        <label><input type="radio" name="gift-type" value="home-decor"> Home Decor</label>
+                        <label><input type="radio" name="gift-type" value="tech-gadgets"> Tech Gadgets</label>
+                        <label><input type="radio" name="gift-type" value="toys-games"> Toys & Games</label>
+                        <button class="submit-btn">Submit</button>
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <div class="filter-header" onclick="toggleDropdown(this)" id="dropdownBtn">
+                        <span>Price type</span>
+                        <span class="arrow">^</span>
+                    </div>
+                    <div class="filter-options">
+                        <label><input type="radio" name="price-type" value="under-10"> Under $10</label>
+                        <label><input type="radio" name="price-type" value="10-25"> $10-$25</label>
+                        <label><input type="radio" name="price-type" value="25-50"> $25-$50</label>
+                        <label><input type="radio" name="price-type" value="over-200"> Over $200</label>
+                        <button class="submit-btn">Submit</button>
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <div class="filter-header" onclick="toggleDropdown(this)" id="dropdownBtn">
+                        <span>Delivery</span>
+                        <span class="arrow">^</span>
+                    </div>
+                    <div class="filter-options">
+                        <label><input type="radio" name="delivery" value="same-day"> Same-Day</label>
+                        <label><input type="radio" name="delivery" value="next-day"> Next-Day</label>
+                        <label><input type="radio" name="delivery" value="scheduled"> Scheduled</label>
+                        <label><input type="radio" name="delivery" value="express"> Express</label>
+                        <button class="submit-btn" >Submit</button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div><button class="explore-btn">Explore now</button></div>
+        </div>
+    </div>
+    
+<script>
+    function toggleDropdown(header) {
+    const options = header.nextElementSibling;
+    const isExpanded = header.classList.toggle('expanded');
+    if (isExpanded) {
+        options.classList.add('show');
+    } else {
+        options.classList.remove('show');
+    }
+}
+// Close dropdowns when clicking outside
+document.addEventListener('click', (event) => {
+    const filterHeaders = document.querySelectorAll('.filter-header');
+    filterHeaders.forEach(header => {
+        if (!header.contains(event.target) && !header.nextElementSibling.contains(event.target)) {
+            header.classList.remove('expanded');
+            header.nextElementSibling.classList.remove('show');
+        }
+    });
+});
+</script>
+
+<div class="product-container">
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+           
+            <img src="image 54.png">
+              
+        </div>
+        <div class="product-details">
+            <h3>The Picture Cup set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 20.png">
+        </div>
+        <div class="product-details">
+            <h3>The Gadget accessories</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 21.png">
+        </div>
+        <div class="product-details">
+            <h3>The Picture Frame set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';" >Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 22.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 23.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 24.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+        <img src="image 25.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 26.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 27.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 15.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 18.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-card">
+        <button class="heart-btn" style="float: right;">♥</button>
+        <div class="product-image">
+            <img src="image 19.png">
+        </div>
+        <div class="product-details">
+            <h3>The subscribtion set</h3>
+            <p>Rs: 1000 Per Package</p>
+            <div class="buttons">
+                <button class="shop-now" onclick="window.location.href='Cart.html';">Shop now</button>
+                <button class="customize" id="openFormBtn">Customize</button>
+            </div>
+        </div>
+    </div>
+    <div id="formPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeForm()">&times;</span>
+            <h2 style="text-align: center;"> Gift Customization Details Form</h2>
+            <form>
+                <div class="form-row1">
+                <div class="form-row">
+                    <label for="recipientName">Recipient's Name</label>
+                    <input type="text" id="recipientName" name="recipientName">
+                </div>
+                <div class="form-row">
+                    <label for="colorChoice">Color choice</label>
+                    <input type="text" id="colorChoice" name="colorChoice">
+                </div>
+                <div class="form-row">
+                    <label for="date">Date/month/year</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                </div>
+                <div class="form-row2">
+                <div class="form-row">
+                    <label for="fontStyle">Fonts style</label>
+                    <input type="text" id="fontStyle" name="fontStyle">
+                </div>
+                <div class="form-row">
+                    <label for="customMessage">Custom Message</label>
+                    <textarea id="customMessage" name="customMessage" rows="4"></textarea>
+                </div>
+    
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            
+            <div class="last-sec" style="display: flex;flex-direction: row;gap:100px; font-size: 24px;">
+            <img src="image 9.png" width="250px">
+            <label>
+                        <input type="radio" name="yesNo" value="yes"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="yesNo" value="no"> No
+                    </label>
+               <button id="toggleButton" class="arrow-button">
+        &#8673; 
+    </button>     
+            <div id="imageContainer" class="hidden">
+                
+        <!-- Replace 'your-image.jpg' with the path to the image you want to appear -->
+        <img src="image 57.png" alt="A revealed placeholder image" width="250px">
+    </div>
+                    </div>
+        </div>
+    </div>
+    <div id="successOverlay" class="overlay">
+    <div class="messageBox">
+        <button onclick="closeOverlay()" style="float: right;color: black;">x</button>
+        <h2 style="color: #F1C40F;font-size: 32px;">Customisation Details Updated Success</h2>
+        <p>Check your dashboard message appears</p>
+        <!-- Optional: Close button -->
+        
+    </div>
+</div>
+</div>
+<script>
+   const buttons = document.querySelectorAll('.heart-btn');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('clicked');
+  });
+});
+</script>
+<script>
+// Get the elements
+var formPopup = document.getElementById("formPopup");
+var openFormBtn = document.getElementById("openFormBtn");
+const Recipientname= document.getElementById('recipientName');
+const Colorchoice= document.getElementById('colorChoice');
+const Dates= document.getElementById('date');
+const Fontstyle= document.getElementById('fontStyle');
+const CustomMessage= document.getElementById('customMessage');
+Recipientname.onclick = () => Recipientname.value = "David Jhonson";
+Dates.onclick=() => Dates.value ='19/09/25';
+Colorchoice.onclick = () => Colorchoice.value = "Golden Theme";
+CustomMessage.onclick=() => CustomMessage.value ='Wishing you a day filled with love, laughter, and gifts.';
+Fontstyle.onclick=() => Fontstyle.value ='Italic Style';
+
+const customizeBtns = document.querySelectorAll('.customize');
+customizeBtns.forEach(button => {
+  button.onclick = function() {
+    formPopup.style.display = "flex";
+  };
+});
+//
+//openFormBtn.onclick = function() {
+   // formPopup.style.display = "flex"; // Use flex to center the content
+//}
+
+// Function to close the form (called by the close button's onclick attribute in HTML)
+function closeForm() {
+    formPopup.style.display = "none";
+}
+
+// Close the form if the user clicks outside of the content area
+window.onclick = function(event) {
+    if (event.target == formPopup) {
+        formPopup.style.display = "none";
+    }
+}
+
+</script>
+<script>
+    // Get references to the form and overlay elements
+const form = document.getElementById('formPopup');
+const successOverlay = document.getElementById('successOverlay');
+
+// Add event listener for form submission
+form.addEventListener('submit', function(event) {
+    // Prevent the default form submission behavior (which reloads the page)
+    event.preventDefault();
+    
+    // Display the success message overlay
+    successOverlay.style.display = 'flex';
+    form.style.display='none';
+    // Optional: You can also reset the form here if needed
+    // form.reset();
+});
+
+// Function to close the overlay (if you add a close button)
+function closeOverlay() {
+    successOverlay.style.display = 'none';
+}
+</script>
+<script>
+    // Get references to the elements
+const toggleButton = document.getElementById('toggleButton');
+const imageContainer = document.getElementById('imageContainer');
+
+// Add a click event listener to the button
+toggleButton.addEventListener('click', function() {
+    // Toggle the 'hidden' class on the image container element
+    imageContainer.classList.toggle('hidden');
+    toggleButton.style.display='none';
+});
+
+</script>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>

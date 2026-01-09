@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Customization Website</title>
+    <link rel="stylesheet" href="Layout7.css">
+        <link href="fonts.googleapis.com" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="cdnjs.cloudflare.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="fonts.googleapis.com" rel="stylesheet">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="cdnjs.cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+   .body-cont {
+
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.container {
+    width: 100%;
+    
+}
+
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    margin: 50px;
+    font-size: 24px;
+}
+
+
+/* Billing Details Section */
+.billing-details {
+    flex: 2;
+    background-color: #F1C40F;
+    padding: 100px;
+    border-radius: 10px;
+    color:black;
+
+}
+
+.billing-details h2 {
+    margin-top: 0;
+    color: black;
+}
+
+.form-row {
+    display: flex;
+    gap: 60px;
+    width:100%;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 40px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    
+}
+
+.form-group input {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 22px;
+    border: 1px solid black;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+.form-group input::placeholder{
+    font-size: 22px;
+    color: #666;
+}
+.form-row input::placeholder{
+    font-size:22px;
+    color: #666;
+}
+
+.delivery-address h3 {
+    margin-top: 20px;
+    color: black;
+}
+
+.address-options {
+    display: flex;
+    font-size: larger;
+    gap: 10px;
+}
+
+.btn-address {
+    padding: 20px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    margin-right: 50px;
+
+}
+
+
+
+/* Order Summary Section */
+.order-summary {
+    background-color: white;
+    padding: 40px;
+    
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid black;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 100px;
+}
+
+.summary-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: black;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.total-value {
+    color: #28a745; /* Green color for total */
+}
+
+.checkout-btn {
+    width: 70%;
+    padding: 12px;
+    background-color: #F1C40F;
+    margin-left: 60px;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.order-container{
+    display: flex;
+    flex-direction: column;
+}
+    </style>
+</head>
+<body>
+ <header class="nav-bar">
+        <div class="logo-container">
+            <div class="image-content">
+                <div class="flicker-container">
+                <img class="flicker-effect" src="logo.png" class="logo-img">
+               </div>
+             </div>
+            <span class="logo-name">Vibey Giftoy</span>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="Homeuser.html">Home</a></li>
+                <li><a href="Categories.html">Categories</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Blogs.html">Blogs</a></li>
+                <li><a href="Contactus.html">Contact us</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+            </ul>
+            <div class="search-container">
+            <input id="invalue" type="text" placeholder="Search">
+            <script>
+            const pField = document.getElementById('invalue');
+pField.onclick = () => pField.value = "Personalization Gifts";
+        </script>
+            <button type="submit"><svg xmlns="www.w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+        </div>
+        </nav>
+        
+        <div class="users">
+            <div class="user-profile" onclick="toggleDropdown()"><img src="user.png">
+                <nav class="dropdown-content" id="myDropdown">
+    <a href="Myaccount.html">Account Information</a>
+    <a href="Invoice.html">My order</a>
+    <a href="Track.html">Tracking Order</a>
+    <a href="Password.html">Password Manager</a>
+    <a href="logout.html">Logout</a>
+  </nav></div>
+  <script>
+    function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.avatar')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+  </script>
+
+             <span class="icon" ><a href="Wishlist.html"><i class="fa-regular fa-heart"></i></a></span>
+            <span class="icon" id="myIcon1" style="text-decoration: none;color: #B89C65;" ><a href="Cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+           <span class="notification-icon" id="bellIcon"><i class="fa-regular fa-bell"></i></span> 
+        
+    </div>
+    </div>
+    <div id="orderPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div style="font-size: 24px;font-weight: bold;"><img src="image 48.png" width="20px">Order delivery Notifications</div>
+            
+                <p>We offer fast and reliable delivery to ensure your gifts arrive fresh, on time, and beautifully packaged. Choose from<br>
+                standard, express, or same-day delivery options at checkout</p>
+                
+            
+        </div>
+    </div>
+    
+    <script>
+        // Get the pop-up element
+var popup = document.getElementById("orderPopup");
+
+// Get the button that opens the pop-up
+var btn = document.getElementById("bellIcon");
+
+// Get the <span> element that closes the pop-up
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the pop-up 
+btn.onclick = function() {
+  popup.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the pop-up
+span.onclick = function() {
+  popup.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the pop-up, close it
+window.onclick = function(event) {
+  if (event.target == popup) {
+    popup.style.display = "none";
+  }
+}
+    </script>
+         
+    </header>
+
+    <div classs="body-cont">
+<div class="container">
+       
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Billing Details Section -->
+            <div class="billing-details">
+                <h2>Billing Details</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name*</label>
+                            <input type="text" id="first-name" value="Ex.John">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name*</label>
+                            <input type="text" id="last-name" value="Ex.Doe">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country*</label>
+                        <input type="text" id="country" placeholder="Select Company">
+                    </div>
+                    <div class="form-group">
+                        <label for="address1">Street Address*</label>
+                        <input type="text" id="address1" placeholder="House number and street name">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="city">City*</label>
+                        <input type="text" id="city" placeholder="Select City">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State*</label>
+                        <input type="text" id="state" placeholder="Select State">
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip Code*</label>
+                        <input type="text" id="zip" placeholder="Select Zipcode">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone*</label>
+                        <input type="text" id="phone" placeholder="Enter Phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail*</label>
+                        <input type="email" id="email" placeholder="Enter E-Mail">
+                    </div>
+
+                    <div class="delivery-address">
+                        <h3>Delivery Address</h3>
+                        <div class="address-options">
+                            <button type="button" class="btn-address" ><input type="radio" id="use" name="list" value="list">
+        <label for="list">Use A different billing address</label></button>
+                            <button type="button" class="btn-address"><input type="radio" id="save" name="list" value="list">
+        <label for="list">Save to shipping address</label></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+<script>
+    const name = document.getElementById('first-name');
+    const name1 = document.getElementById('last-name');
+    const Country = document.getElementById('country');
+    const Street = document.getElementById('address1');
+    const City = document.getElementById('city');
+    const State = document.getElementById('state');
+    const Pincode = document.getElementById('zip');
+    const Phone = document.getElementById('phone');
+    const Email = document.getElementById('email');
+
+    name.onclick = () => name.value = "Amjath";
+    name1.onclick = () => name1.value = "Althaf"
+Country.onclick = () => Country.value = "India";
+Street.onclick=() => Street.value ='3/277, long street, Ravanasamudram, Tirunelveli 627424.';
+City.onclick=() => City.value = 'Tirunelveli';
+Pincode.onclick = () => Pincode.value = "627424";
+State.onclick = () => State.value = "Tamilnadu"
+Phone.onclick = () => Phone.value = '7867980688';
+Email.onclick=() => Email.value = 'amjaan@gmail.com';
+
+
+</script>
+            <!-- Order Summary Section -->
+             <div class="order-container">
+            <div class="order-summary">
+            <h2 class="summary-title">Order Summary</h2>
+            <div class="summary-details">
+                <div class="detail-row">
+                    <span class="label">Items</span>
+                    <span class="value">1</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Subtotal</span>
+                    <span class="value">Rs.1200</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Shipping</span>
+                    <span class="value">Rs.00.0</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Taxes</span>
+                    <span class="value">Rs.00.0</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Coupen Discount</span>
+                    <span class="value">Rs.200</span>
+                </div>
+            </div>
+            <div class="summary-total">
+                <span class="label">Total</span>
+                <span class="value total-value">₹1000</span>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='payment.html'">Proceed to Pay</button>
+        </div>
+        <img src="image 57.png" width="500px"> 
+        </div>
+    </div>
+    </div>
+</div>
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Left section with logo/image -->
+            <div class="footer-left">
+                <div class="flicker-container">
+                    <img class="flicker-effect" src="logo.png" width="200px">
+                  </div>
+                <div class="logo-text">Vibey Giftoy</div>
+            </div>
+
+            <!-- Main links sections -->
+            <div class="footer-links">
+                <h4>Customer service</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Checkup</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Return</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our information</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms & Condition</a></li>
+                    <li><a href="#">Customer Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <p>Mobile: 123-456-789</p>
+                <p>Email: Email_Vibeygif@gmail.com</p>
+                <p>Address: 12, north city-001</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Giftey. co. All rights reserved.</p>
+            <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
